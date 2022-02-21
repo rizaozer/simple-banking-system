@@ -9,7 +9,6 @@ public class Bank {
     }
 
     void run() {
-        createAccount();
         boolean flag = true;
         boolean isLoggedIn;
 
@@ -20,6 +19,7 @@ public class Bank {
             switch (decision) {
                 // create a bank account
                 case 1:
+                    createAccount();
                     System.out.println("Your card has been created!");
                     System.out.println(account1);
                     break;
