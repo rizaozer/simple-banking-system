@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static java.lang.String.valueOf;
@@ -14,32 +16,20 @@ public class BankAccount {
     }
 
     public static String generateCardNumber() {
-        String k = valueOf(1000 + new Random().nextInt(9999));
-        String l = valueOf(1000 + new Random().nextInt(9999));
+        String k = "400000";
+        String l = valueOf(10000 + new Random().nextInt(99999));
         String m = valueOf(1000 + new Random().nextInt(9999));
-        String n = valueOf(100 + new Random().nextInt(999));
+        return k + l + m;
+    }
 
-        String cardNumber = k + l + m + n;
+    public static int findTheLastNumber(String cardNumber) {
+        int[] numbersArray = new int[cardNumber.length()];
 
-        long cardNumberLong = Long.parseLong(cardNumber);
-
-        long sum = 0;
-        while(cardNumberLong > 0) {
-            long temp = cardNumberLong % 10;
-            cardNumberLong = cardNumberLong / 10;
-            sum = sum + temp;
+        for(int i = 0; i < cardNumber.length(); i++){
+            numbersArray[i] = Character.getNumericValue(cardNumber.charAt(i));
         }
+        return 0;
 
-        long lastNumber;
-        if(sum % 10 != 0) {
-            lastNumber = 10 - (sum % 10);
-        } else {
-            lastNumber = 0;
-        }
-
-        String lastNumberString = Long.toString(lastNumber);
-
-        return k + l + m + n + lastNumberString;
     }
 
     public static String generatePin() {
