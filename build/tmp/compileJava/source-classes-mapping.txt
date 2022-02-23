@@ -1,7 +1,5 @@
 Main.java
  Main
-main2.java
- main2
 Bank.java
  Bank
 BankAccount.java
